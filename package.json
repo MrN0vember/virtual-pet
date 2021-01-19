@@ -1,0 +1,14 @@
+{
+  "name": "virtual-pet",
+  "version": "1.0.0",
+  "description": "task to create a virtual pet in JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "James Pratt",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
