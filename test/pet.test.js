@@ -10,3 +10,13 @@ describe('constructor', () => {
   it('returns the name of my pet', () => {
       expect(pet.name).toBe("Iorek");
   });
+  it('returns an initial age of 0', () => {
+      expect(pet.age).toBe(0);
+  });
+  describe('growUp', () => {
+      it('increases age by 1', () => {
+          const pet = new Pet('Iorek');
+          pet.growUp();
+          expect(pet.age).toEqual(1);
+      });
+  });
