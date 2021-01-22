@@ -1,3 +1,6 @@
+const maxFitness = 10;
+const maxHunger = 10;
+
 function Pet(name) {
     this.name = name;
     this.age = 0;
@@ -17,6 +20,16 @@ increasesHunger() {
 
 decreaseFitness() {
     this.fitness -= 3;
+},
+
+walk() {
+    this.fitness += 4;
+    if (this.fitness >= maxFitness) this.fitness = maxFitness;
 }
-}
-module.exports = Pet;
+};
+
+
+module.exports = Pet,
+maxFitness,
+maxHunger;
+
