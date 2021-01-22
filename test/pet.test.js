@@ -1,6 +1,9 @@
 
 const maxFitness = 10;
 const maxHunger = 10;
+const minHunger = 0;
+
+const { expect, it } = require('@jest/globals');
 const Pet = require('../src/pet');
 
 describe('constructor', () => {
@@ -58,17 +61,33 @@ describe('Hunger', () =>  {
 
 
 describe('walk', () => {
-   it('when walk is called pet fitness is maxFitness', () => {
+   it('walk increases fitness to max of 10', () => {
     const pet = new Pet('Iorek');
     pet.fitness = 6;
     pet.walk();
     expect(pet.fitness).toEqual(maxFitness);
   });
-  it('when walk is called pet fitness increases by 4', () => {
+  it('walk increases fitness by 4', () => {
   const pet = new Pet('Iorek');
   pet.fitness = 4;
   pet.walk();
   expect(pet.fitness).toEqual(8);
   });
   
+});
+
+describe('feed', () => {
+    it('feed decreases hunger by 3', () => {
+        const pet = new Pet('Iorek');
+        pet.hunger = 5;
+        pet.feed();
+        expect(pet.hunger).toEqual(2);
+    });
+
+    it('feed decreases hunger to a minmum of 0', () => {
+        const pet = new Pet('Iorek');
+        pet.hunger = 1;
+        pet.feed();
+        expect(pet.hunger).toEqual(minHunger);
+    });
 });

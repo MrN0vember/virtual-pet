@@ -1,5 +1,6 @@
 const maxFitness = 10;
 const maxHunger = 10;
+const minHunger = 0;
 
 function Pet(name) {
     this.name = name;
@@ -25,11 +26,16 @@ decreaseFitness() {
 walk() {
     this.fitness += 4;
     if (this.fitness >= maxFitness) this.fitness = maxFitness;
+},
+feed() {
+    this.hunger -= 3;
+    if (this.hunger <= 0 ) this.hunger = minHunger;
 }
 };
 
 
 module.exports = Pet,
 maxFitness,
-maxHunger;
+maxHunger,
+minHunger;
 
