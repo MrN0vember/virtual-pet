@@ -1,6 +1,9 @@
 const maxFitness = 10;
 const maxHunger = 10;
 const minHunger = 0;
+const needsWalk = (this.fitness <= 3);
+const needsFood = (this.hunger >= 5);
+
 
 function Pet(name) {
     this.name = name;
@@ -30,12 +33,29 @@ walk() {
 feed() {
     this.hunger -= 3;
     if (this.hunger <= 0 ) this.hunger = minHunger;
+},
+checkUp() {
+   
+    if (needsFood && needsWalk) {
+        return "I am hungry and I need a Walk!";
+
+    } else if (needsFood && !needsWalk) {
+        return "I am hungry!";
+
+    } else if (needsWalk && !needsFood) {
+        return "I need a walk!";
 }
+else
+    return "I feel great!";
+}
+
 };
 
 
 module.exports = Pet,
 maxFitness,
 maxHunger,
-minHunger;
+minHunger,
+needsWalk,
+needsFood;
 
