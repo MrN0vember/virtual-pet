@@ -2,8 +2,7 @@
 const maxFitness = 10;
 const maxHunger = 10;
 const minHunger = 0;
-const needsWalk = (this.fitness <= 3);
-const needsFood = (this.hunger >= 5);
+
 
 const Pet = require('../src/pet');
 
@@ -97,28 +96,28 @@ describe('checkUp', () => {
 
     it('returns pet needs food if hunger >= 5', () => {
         const pet = new Pet('Iorek');
-        pet.fitness = needsFood;
-        expect(pet.checkUp()).toBe("I am hungry");
+        pet.hunger = 10;
+        expect(pet.checkUp()).toBe("I am hungry!");
     });
     
     it('returns pet needs a walk if fitness  <= 3', () => {
         const pet = new Pet('Iorek');
-        pet.fitness = needsWalk;
+        pet.fitness = 2;
         expect(pet.checkUp()).toBe("I need a walk!");
     });
 
   it('returns pet is hungry and needs a walk when hunger is >= 5 & fitness is <= 3', () => {
     const pet = new Pet('Iorek');
-    pet.hunger = needsFood;
-    pet.fitness = needsWalk;
+    pet.hunger = 6;
+    pet.fitness = 2;
     expect(pet.checkUp()).toBe("I am hungry and I need a Walk!")
 
 });
 
   it('returns pet feels great if hunger is <5 and fitness is >3', () => {
   const pet = new Pet('Iorek');
-  pet.hunger = needsFood -1;
-  pet.fitness = needsWalk +1;
+  pet.hunger = 2;
+  pet.fitness = 5;
   expect(pet.checkUp()).toBe("I feel great!");
 
 });
