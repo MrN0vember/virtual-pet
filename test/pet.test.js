@@ -123,3 +123,34 @@ describe('checkUp', () => {
 });
 
 });
+
+describe('isAlive', () => {
+it('pet is alive', () => {
+  const pet = new Pet('Iorek');
+  expect(pet.isAlive).toBe(true);
+});
+it('old age if age is >=30 return false', () => {
+  const pet = new Pet('Iorek');
+  pet.hunger = 4;
+  pet.fitness = 6;  
+  pet.age = 30;
+expect(pet.isAlive).toBe(false);
+});
+
+it('hunger - if hunger is => 10 return false ' , () => {
+  const pet = new Pet('Iorek');
+  pet.hunger = 10;
+  pet.fitness = 4;  
+  pet.age = 21;
+  expect(pet.isAlive).toBe(false);
+});
+
+it('fitness - if fitness is <= 0 return flase', () => {
+  const pet = new Pet('Iorek');
+  pet.hunger = 10;
+  pet.fitness = 4;  
+  pet.age = 21;
+  expect(pet.isAlive).toBe(false);
+});
+
+});

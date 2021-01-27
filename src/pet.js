@@ -13,7 +13,11 @@ function Pet(name) {
 };
 
 Pet.prototype = {
-growUp() {
+get isAlive() {
+    return this.age < 30 && this.hunger < 10 && this.fitness > 0;
+},
+
+    growUp() {
     this.age++;
 },
 
@@ -49,7 +53,6 @@ checkUp() {
 else
     return "I feel great!";
 }
-
 };
 
 
