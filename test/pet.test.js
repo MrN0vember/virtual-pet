@@ -1,10 +1,6 @@
 
-const maxFitness = 10;
-const maxHunger = 10;
-const minHunger = 0;
 
-
-const Pet = require('../src/pet');
+const {Pet, maxFitness, maxHunger, minHunger} = require('../src/pet');
 
 describe('constructor', () => {
     it('returns an object', () => {
@@ -151,6 +147,22 @@ it('fitness - if fitness is <= 0 return flase', () => {
   pet.fitness = 4;  
   pet.age = 21;
   expect(pet.isAlive).toBe(false);
+});
+
+it('throws an error when your is no longer alive', () => {
+  const pet = new Pet('Iorek')
+  pet.hunger = 4;
+  pet.fitness = 6;  
+  pet.age = 31;
+expect(pet.walk).toThrow("Your pet has earned their place in Valhalla!");
+});
+
+it('throws an error when your pet is no longer alive', () => {
+  const pet = new Pet('Iorek')
+  pet.hunger = 4;
+  pet.fitness = 6;  
+  pet.age = 31;
+expect(pet.feed).toThrow("Your pet has earned their place in Valhalla!");
 });
 
 });
