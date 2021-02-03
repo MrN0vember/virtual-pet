@@ -7,6 +7,7 @@ function Pet(name) {
     this.age = 0;
     this.hunger = 0;
     this.fitness = 10;
+    this.children =[];
    
 };
 
@@ -64,8 +65,14 @@ else
     if (!this.isAlive) {
         throw ("Your pet has earned their place in Valhalla!")
 }
+},
+
+adoptedChild(children) {
+    this.children.push(children)
+
 }
 };
+
 
 
 module.exports = {Pet, maxFitness, maxHunger, minHunger};

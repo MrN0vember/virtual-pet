@@ -166,3 +166,15 @@ expect(pet.feed).toThrow("Your pet has earned their place in Valhalla!");
 });
 
 });
+
+describe('adoptChild', () => {
+  it("adds a child", () => {
+    const pet = new Pet("Ragnar");
+  
+    pet.adoptChild(children);
+  
+    expect(pet.children[0].name).toBe("Ragnar");
+});
+});
+
+
